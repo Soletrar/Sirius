@@ -23,6 +23,5 @@ public partial class MainFrm : Form
         if (plugin == null)
             MessageBox.Show(@"The plugin has not been installed, make sure it implements the correct interface/class.",
                 @"Error on plugin install", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        else plugin.Start();
     }
 }

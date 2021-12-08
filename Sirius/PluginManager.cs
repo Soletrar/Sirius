@@ -20,7 +20,6 @@ internal class PluginManager<T>
         return plugin;
     }
 
-
     private Assembly LoadPlugin(string path)
     {
         var fileData = File.ReadAllBytes(path);

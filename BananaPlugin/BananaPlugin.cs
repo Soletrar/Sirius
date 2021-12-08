@@ -5,7 +5,7 @@ namespace BananaPlugin;
 
 internal class BananaPlugin : ISiriusPlugin
 {
-    public void Start()
+    public BananaPlugin()
     {
         ThreadPool.QueueUserWorkItem(async _ =>
         {
@@ -14,6 +14,10 @@ internal class BananaPlugin : ISiriusPlugin
         });
 
         Emulator.Walk(22, 57);
+    }
+
+    public void Start()
+    {
     }
 
     private static async Task WriteLogTask()
