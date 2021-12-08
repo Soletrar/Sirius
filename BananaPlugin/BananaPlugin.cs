@@ -29,10 +29,8 @@ internal class BananaPlugin : ISiriusPlugin
 
 public class TodoModel
 {
-    [JsonProperty("completed")] public bool Completed;
-
-    [JsonProperty("id")] public int Id;
-
-    [JsonProperty("title")] public string? Title;
-    [JsonProperty("userId")] public int    UserId;
+    [JsonProperty("completed")] public bool    Completed;
+    [JsonProperty("id")]        public int     Id;
+    [JsonProperty("title")]     public string? Title;
+    [JsonProperty("userId")]    public int     UserId;
 }
