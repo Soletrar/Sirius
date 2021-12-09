@@ -9,6 +9,16 @@ public static class Emulator
         ThreadPool.SetMaxThreads(16, 16);
     }
 
+    public static void RunTask(Action action, int startDelay = 0)
+    {
+        ThreadPool.QueueUserWorkItem(async _ =>
+        {
+            if (startDelay > 0) await Task.Delay(startDelay);
+
+            action();
+        });
+    }
+
     public static void Walk(int x, int y)
     {
         var desktopPath = Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory);

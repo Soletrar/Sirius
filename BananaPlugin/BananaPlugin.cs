@@ -7,20 +7,12 @@ internal class BananaPlugin : ISiriusPlugin
 {
     public BananaPlugin()
     {
-        ThreadPool.QueueUserWorkItem(async _ =>
-        {
-            await Task.Delay(5000);
-            await WriteLogTask();
-        });
+        Emulator.RunTask(WriteLog, 5000);
 
         Emulator.Walk(22, 57);
     }
 
-    public void Start()
-    {
-    }
-
-    private static async Task WriteLogTask()
+    private static async void WriteLog()
     {
         var json = await new HttpClient().GetStringAsync("https://jsonplaceholder.typicode.com/todos/1");
         var todo = JsonConvert.DeserializeObject<TodoModel>(json);
